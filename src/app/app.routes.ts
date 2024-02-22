@@ -6,14 +6,16 @@ import { CountriesComponent } from './components/countries/countries.component';
 import { SingleCountryComponent } from './components/single-country/single-country.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
+import { SiteLayoutComponent } from './layout/site-layout/site-layout.component';
 
 export const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/sign-in',
+  // no layout routes
+  // {
+  //   path: '',
+  //   redirectTo: '/countries',
 
-    pathMatch: 'full',
-  },
+  //   pathMatch: 'full',
+  // },
   {
     path: 'register',
     component: SignUpComponent,
@@ -22,24 +24,34 @@ export const routes: Routes = [
     path: 'sign-in',
     component: SignInComponent,
   },
+  // {
+  //   path: '**',
+  //   redirectTo: '/countries',
+  // },
+
+  // Site routes goes here
   {
-    path: 'countries',
-    component: CountriesComponent,
-  },
-  {
-    path: '**',
-    redirectTo: '/sign-in',
-  },
-  {
-    path: 'single-country/:name',
-    component: SingleCountryComponent,
-  },
-  {
-    path: 'forgot-password',
-    component: ForgotPasswordComponent,
-  },
-  {
-    path: 'verify-email-address',
-    component: VerifyEmailComponent,
+    path: '',
+    component: SiteLayoutComponent,
+
+    children: [
+      {
+        path: 'countries',
+        component: CountriesComponent,
+      },
+
+      {
+        path: 'single-country/:name',
+        component: SingleCountryComponent,
+      },
+      {
+        path: 'forgot-password',
+        component: ForgotPasswordComponent,
+      },
+      {
+        path: 'verify-email-address',
+        component: VerifyEmailComponent,
+      },
+    ],
   },
 ];

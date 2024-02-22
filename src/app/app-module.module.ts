@@ -18,6 +18,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
 import { appConfig } from './app.config';
+import { SiteLayoutComponent } from './layout/site-layout/site-layout.component';
+import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
+import { MaterialModule } from './material/material/material.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,8 @@ import { appConfig } from './app.config';
     SearchComponent,
     SearchPipe,
     HighlightifyPipe,
+    SiteLayoutComponent,
+    AuthLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +48,7 @@ import { appConfig } from './app.config';
     RouterOutlet, // add here if necessasry
     RouterLink, // add here if necessasry
     appConfig.providers,
+    MaterialModule,
   ],
 
   providers: [AuthService, SearchService],
