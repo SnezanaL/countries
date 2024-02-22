@@ -21,6 +21,8 @@ import { appConfig } from './app.config';
 import { SiteLayoutComponent } from './layout/site-layout/site-layout.component';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { MaterialModule } from './material/material/material.module';
+import { SiteHeaderComponent } from './layout/site-header/site-header.component';
+import { SiteSidebarComponent } from './layout/site-sidebar/site-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { MaterialModule } from './material/material/material.module';
     SearchPipe,
     HighlightifyPipe,
     SiteLayoutComponent,
+    // SiteHeaderComponent,
+    // SiteSidebarComponent,
     AuthLayoutComponent,
   ],
   imports: [

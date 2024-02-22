@@ -15,31 +15,31 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$countries-primary: mat.define-palette(mat.$indigo-palette);
-$countries-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// $countries-primary: mat.define-palette(mat.$indigo-palette);
+// $countries-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
-// The warn palette is optional (defaults to red).
-$countries-warn: mat.define-palette(mat.$red-palette);
+// // The warn palette is optional (defaults to red).
+// $countries-warn: mat.define-palette(mat.$red-palette);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$countries-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $countries-primary,
-      accent: $countries-accent,
-      warn: $countries-warn,
-    ),
-  )
-);
+// // Create the theme object. A theme consists of configurations for individual
+// // theming systems such as "color" or "typography".
+// $countries-theme: mat.define-light-theme(
+//   (
+//     color: (
+//       primary: $countries-primary,
+//       accent: $countries-accent,
+//       warn: $countries-warn,
+//     ),
+//   )
+// );
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($countries-theme);
+// // Include theme styles for core and each component used in your app.
+// // Alternatively, you can import and @include the theme mixins for each component
+// // that you are using.
+// @include mat.all-component-themes($countries-theme);
 
-$primary: mat.define-palette(mat.$gray-palette, 50); //Gray 50 #FAFAFA
-// $accent: mat-palette($md-verylight);
+$primary: mat.define-palette(mat.$gray-palette, 200); //Gray 50 #FAFAFA
+$accent: mat.define-palette(mat.$gray-palette);
 // // $warn: mat-palette($mat-red);
 // // $text: mat-palette($md-verydark);
 // // $input: mat-palette($md-darkgrey);
@@ -47,25 +47,48 @@ $primary: mat.define-palette(mat.$gray-palette, 50); //Gray 50 #FAFAFA
 
 // // $primary: mat-palette($mat-indigo);
 // // $accent: mat-palette($mat-pink, A200, A100, A400);
-// $warn: mat-palette($md-verydark);
-// $theme: mat-light-theme($primary, $accent, $warn);
+$warn: mat.define-palette(mat.$gray-palette);
+//$theme: mat-light-theme($primary, $accent, $warn);
+
+$countries-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+  )
+);
 
 // @include angular-material-theme($theme);
 // @include component-themes($theme);
 
-// // Our dark theme
-// .dark-theme {
-//  color: $light-primary-text;
-//  $dark-primary: mat-palette($md-darkblue);
-//  $dark-accent: mat-palette($md-backgrounddm);
-//  $dark-warn: mat-palette($md-verylight, A100);
-//  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+@include mat.all-component-themes($countries-theme);
 
-//  @include angular-material-theme($dark-theme);
-//  @include component-themes($dark-theme);
-// }
+// Our dark theme
+.dark-theme {
+  //color: $light-primary-text;
+  $dark-primary: mat.define-palette(mat.$blue-palette);
+  $dark-accent: mat.define-palette(mat.$gray-palette, 600);
+  $dark-warn: mat.define-palette(mat.$gray-palette, 100);
+  //$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
-// // Our login theme
+  //  @include angular-material-theme($dark-theme);
+  //  @include component-themes($dark-theme);
+  $dark-theme: mat.define-dark-theme(
+    (
+      color: (
+        primary: $dark-primary,
+        accent: $dark-accent,
+        warn: $dark-warn,
+      ),
+    )
+  );
+
+  @include mat.all-component-themes($dark-theme);
+}
+
+// Our login theme
 // .login-theme {
 //  //color: $light-primary-text;
 //  $login-primary: mat-palette($md-mcblue);

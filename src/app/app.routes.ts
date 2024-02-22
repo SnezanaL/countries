@@ -35,6 +35,7 @@ export const routes: Routes = [
     component: SiteLayoutComponent,
 
     children: [
+      { path: '', redirectTo: '/countries', pathMatch: 'full' },
       {
         path: 'countries',
         component: CountriesComponent,

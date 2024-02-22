@@ -1,1 +1,35 @@
-<p>site-header works!</p>
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav #sidenav mode="side" fixedInViewport="true" [(opened)]="opened">
+    <div class="">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active">
+            <mat-icon>wallpaper</mat-icon><span>Countries</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active">
+            <mat-icon>person_outline</mat-icon><span>User Profile</span>
+          </a>
+        </li>
+        <!-- Calling SignOut() Api from AuthService -->
+        <li class="nav-item">
+          <a href="" class="nav-link">
+            <!-- <i class="fas fa-sign-out-alt"></i> -->
+            <mat-icon>exit_to_app</mat-icon><span>Sign out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content-container">
+      <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
